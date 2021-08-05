@@ -51,7 +51,7 @@ export class AppComponent {
     const testEntries = { value: 'ricardo', key: 'RPC' };
     console.log(Object.entries(testEntries));
     console.log(Object.keys(testEntries));
-    console.log(Object.values(testEntries));
+    console.log(Object.values(testEntries)); //con values se puede convertir de json a array
 
     const array1 = [1, 2, 3, 4, 5];
     const array2 = [9, 10, 11, ...array1]; //... -> spread operator
@@ -60,6 +60,23 @@ export class AppComponent {
     //desestructuracion
     const per3 = { name: 'a', age: 12, phone: 123, extra: 123, response: 200 };
     const { name } = per3;
-    console.log('name: ',name)
+    console.log('name: ', name);
+
+    //EJERCICIO 1
+    //{1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} convertir a un array y sumar los numeros pares
+    const e1 = { 1: 'a', 2: 'a', 3: 'a', 4: 'a', 5: 'a', 6: 'a' };
+    const b = Object.keys(e1).map(n=> parseInt(n)).reduce((acc, val) => {
+      if (val %2 ===0){
+        acc = acc + val;
+      }
+      return acc;
+    }, 0); //inicializamos el acumulador en 0
+    console.log(b);
+
+    
+    //EJERCICIO 2
+    //[1,2,3,4,5,6] filtrar los numeros impares y mostrarlos como cadena
+    const e2 = [1, 2, 3, 4, 5, 6].filter(s => s % 2 !== 0).join('-');
+    console.log(e2);
   }
 }
