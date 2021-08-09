@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'erick-comp',
@@ -8,5 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class Test1Component {
   @Input('status') statusTest: string = 'working';
 
+  @Output('onSendData') sendData = new EventEmitter(null);
+
   constructor() {}
+
+  onClickTest(event: any) {
+    console.log('Event Click', event);
+
+    this.sendData.emit({
+      name: 'erick',
+      status: 'busy'
+    });
+  }
 }

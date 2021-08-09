@@ -1,3 +1,7 @@
 <p>App component</p>
-<erick-comp status="busy"></erick-comp>
+
+<erick-comp [status]="myStatus" (onSendData)="printDataErickComp($event)"></erick-comp>
+
 <app-test2></app-test2>
+
+<button onclick="">do click</button>

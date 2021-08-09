@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular2021';
+  myStatus = 'my status';
 
   constructor() {
     const testMap = [1, 2, 3, 4, 5].map(item => item * 2);
@@ -65,18 +66,22 @@ export class AppComponent {
     //EJERCICIO 1
     //{1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} convertir a un array y sumar los numeros pares
     const e1 = { 1: 'a', 2: 'a', 3: 'a', 4: 'a', 5: 'a', 6: 'a' };
-    const b = Object.keys(e1).map(n=> parseInt(n)).reduce((acc, val) => {
-      if (val %2 ===0){
-        acc = acc + val;
-      }
-      return acc;
-    }, 0); //inicializamos el acumulador en 0
+    const b = Object.keys(e1)
+      .map(n => parseInt(n))
+      .reduce((acc, val) => {
+        if (val % 2 === 0) {
+          acc = acc + val;
+        }
+        return acc;
+      }, 0); //inicializamos el acumulador en 0
     console.log(b);
 
-    
     //EJERCICIO 2
     //[1,2,3,4,5,6] filtrar los numeros impares y mostrarlos como cadena
     const e2 = [1, 2, 3, 4, 5, 6].filter(s => s % 2 !== 0).join('-');
     console.log(e2);
+  }
+  printDataErickComp(event: any) {
+    console.log('ERICK COMP', event);
   }
 }
