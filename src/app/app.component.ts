@@ -84,4 +84,8 @@ export class AppComponent {
   printDataErickComp(event: any) {
     console.log('ERICK COMP', event);
   }
+
+  printData(event) {
+    console.log('CHILD COMP SENT DATA: ', event);
+  }
 }
