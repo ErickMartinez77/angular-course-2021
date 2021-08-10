@@ -49,7 +49,7 @@ export class AppComponent {
     );
     console.log(testReduce);
 
-    const testEntries = { value: 'ricardo', key: 'RPC' };
+    const testEntries = { value: 'erick', key: 'RPC' };
     console.log(Object.entries(testEntries));
     console.log(Object.keys(testEntries));
     console.log(Object.values(testEntries)); //con values se puede convertir de json a array
