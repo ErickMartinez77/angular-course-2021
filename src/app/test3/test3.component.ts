@@ -1,11 +1,31 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-test3',
   templateUrl: './test3.component.html',
   styleUrls: ['./test3.component.css']
 })
-export class Test3Component implements OnInit, OnChanges, DoCheck, OnDestroy, AfterViewInit, AfterViewChecked,AfterContentChecked, AfterContentInit {
+export class Test3Component
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    OnDestroy,
+    AfterViewInit,
+    AfterViewChecked,
+    AfterContentChecked,
+    AfterContentInit {
   name = '';
   lastName = '';
 
@@ -23,31 +43,31 @@ export class Test3Component implements OnInit, OnChanges, DoCheck, OnDestroy, Af
     console.log('ON INIT');
   }
 
-  ngOnChanges(changes: any){
+  ngOnChanges(changes: any) {
     console.log('ON CHANGES', changes);
   }
 
-  ngDoCheck(){
+  ngDoCheck() {
     console.log('DO CHECK');
   }
 
-  ngAfterViewInit(){
-    console.log('VIEW INIT')
+  ngAfterViewInit() {
+    console.log('VIEW INIT');
   }
 
-  ngAfterContentInit(){
-    console.log('CONTENT INIT')
+  ngAfterContentInit() {
+    console.log('CONTENT INIT');
   }
 
-  ngAfterContentChecked(){
-    console.log('CONTENT CHECK')
+  ngAfterContentChecked() {
+    console.log('CONTENT CHECK');
   }
 
-  ngAfterViewChecked(){
-    console.log('VIEW CHECK')
+  ngAfterViewChecked() {
+    console.log('VIEW CHECK');
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     console.log('ON DESTROY');
   }
 }
