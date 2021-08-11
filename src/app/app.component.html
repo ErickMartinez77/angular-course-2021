@@ -129,3 +129,19 @@ lastName="Martinez"
 }">
   my div with ngClass
 </div>
+
+
+<!--POR RESOLVER -->
+<p>TAREA 2 ----------------------</p>
+<ul>
+  <li *ngFor="let item of [1,2,3,4,5,6]; let i = index;"> 
+    
+    <erick-comp [ngClass]="{
+      'co1':index%2===0,
+      'co2':index%2!==0
+    }"
+    [status]="item" 
+    (onSendData)="printDataErickComp($event)">
+    </erick-comp>
+  </li>
+</ul>
