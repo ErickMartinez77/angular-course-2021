@@ -8,6 +8,34 @@
 <input type="text" [(ngModel)]="myStatus">
 
 <button (click)="sw =! sw"> SHOW TEST 3</button>
-<div *ngIf="sw">
+<div [hidden]="sw">
   <app-test3 [name2] = 'myStatus'></app-test3>
 </div>
+
+
+<ul>
+  <li *ngFor="let item of ['first','second','third']; let i = index;"> 
+    
+    <erick-comp 
+    [status]="item" 
+    (onSendData)="printDataErickComp($event)">
+    </erick-comp>
+  </li>
+</ul>
+
+
+
+<input type="text" [(ngModel)]="color">
+<ul [ngSwitch]="color">
+  <li *ngSwitchCase="'red'">
+    <erick-comp 
+    [status]="color" 
+    (onSendData)="printDataErickComp($event)">
+    </erick-comp>
+  </li>
+  <li *ngSwitchCase="'yellow'">
+    <app-test3 [name2] = 'color'></app-test3>
+  </li>
+  <li *ngSwitchCase="'green'">green</li>
+  <li *ngSwitchDefault>Default</li> 
+</ul>
