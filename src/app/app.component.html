@@ -2,7 +2,11 @@
 
 <erick-comp [status]="myStatus" (onSendData)="printDataErickComp($event)"></erick-comp>
 
-<app-test2 name="Erick" lastName="Martinez" (onSentData)="printData($event)"></app-test2>
+<app-test2 
+name="Erick" 
+lastName="Martinez" 
+(onSentData)="printData($event)">
+</app-test2>
 
 
 <input type="text" [(ngModel)]="myStatus">
@@ -49,3 +53,79 @@
       </erick-comp>
     </li>
 </ul>
+
+<button (click)="sw =! sw"> SHOW TEST 3</button>
+<div *ngIf="sw else myVarElse">
+  <app-test3 [name2] = 'myStatus'></app-test3>
+</div>
+
+
+<div #myDiv1>
+  <p>My div 1</p>
+</div>
+
+
+<ng-template #myVarElse>
+  <p>It is my template</p>
+  <p>It is my template</p>
+  <p>It is my template</p>
+  <p>It is my template</p>
+  <p>It is my template</p>
+</ng-template>
+
+
+
+
+
+
+<app-test2 
+name="Erick" 
+lastName="Martinez" 
+(onSentData)="printData($event)">
+
+<p>Mi propio contenido</p>
+<button> mi boton</button>
+
+</app-test2>
+
+
+<button (click)="sw =! sw"> SHOW TEST 3</button>
+<ng-container *ngIf="sw" style="margin: 30px;">
+  <p>NG CONTAINER</p>
+</ng-container>
+
+
+
+
+<p>DIRECTIVAS DE ATRIBUTO</p>
+
+
+
+<input type="string" [(ngModel)]="color">
+<p [style.fontSize.px]="color">
+  my p with styles 1 Directiva de Atributo Style
+</p>
+
+
+<p [ngStyle]="{
+  'background':'red',
+  'border':'5px gray solid'
+}">
+  my p with styles 2  Directiva de Atributo ngStyle
+</p>
+
+
+<p>----------------------------------------------------</p>
+
+<div [class.est1]="color === 'hola'">
+  my div with class
+</div>
+
+
+<div [ngClass]="{
+  'est1':color === 'hola1',
+  'est2':color === 'hola2',
+  'est3':color === 'hola3'
+}">
+  my div with ngClass
+</div>
