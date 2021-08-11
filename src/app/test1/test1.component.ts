@@ -10,6 +10,7 @@ export class Test1Component {
 
   @Output('onSendData') sendData = new EventEmitter(null);
 
+
   constructor() {}
 
   onClickTest(event: any) {

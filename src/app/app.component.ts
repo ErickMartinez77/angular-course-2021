@@ -12,6 +12,8 @@ export class AppComponent {
 
   color:string;
 
+  people = [{name:'juan', lastName:'perez'},{name:'erick', lastName:'martinez'},{name:'cristian', lastName:'paz'}];
+
   constructor() {
     const testMap = [1, 2, 3, 4, 5].map(item => item * 2);
     console.log(testMap);

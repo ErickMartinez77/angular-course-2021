@@ -39,3 +39,13 @@
   <li *ngSwitchCase="'green'">green</li>
   <li *ngSwitchDefault>Default</li> 
 </ul>
+
+<p>TAREA-----</p>
+<ul>
+  <li *ngFor="let person of people">
+    <erick-comp 
+      [status]="person.name +  person.lastName" 
+      (onSendData)="printDataErickComp($event)">
+      </erick-comp>
+    </li>
+</ul>
