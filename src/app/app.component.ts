@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {of} from 'rxjs';
+import {BehaviorSubject, of, Subscription} from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
@@ -16,7 +16,10 @@ export class AppComponent {
 
   people = [{name:'juan', lastName:'perez'},{name:'erick', lastName:'martinez'},{name:'cristian', lastName:'paz'}];
 
-  tiktok = of([1,2,3,4,5]);  
+  video = 1;
+  tiktok = of([1,2,3,4,5]);
+  tiktok2 = new BehaviorSubject(this.video);  
+  personASub: Subscription;
 
   constructor() {
     const testMap = [1, 2, 3, 4, 5].map(item => item * 2);
@@ -93,7 +96,7 @@ export class AppComponent {
 
 
 
-
+      //------------------OBSERVER OF----------------
       //PERSONA A
     this.tiktok.pipe(
       map(s=>s.join('-'))
@@ -114,11 +117,35 @@ export class AppComponent {
     });
 
 
+      //PERSONA D
+    this.personASub= this.tiktok2.pipe(
+      filter(s=> s%2 === 0)
+    ).subscribe(v=> {
+      console.log('PERSONA A VIDEO: ', v)
+    });
+
+    //PERSONA E
+    this.tiktok2.pipe(
+    ).subscribe(v=> {
+      console.log('PERSONA B VIDEO: ', v)
+    });
+
+    //PERSONA F
+    this.tiktok2.subscribe(v=> {
+      console.log('PERSONA C VIDEO: ', v)
+    });
+
+
 
   }
 
   onAddVideo(){
-    this.tiktok = of([6,7,8,9,10])
+    this.video ++;
+    this.tiktok2.next(this.video);
+  }
+
+  personAUnsubscribe(){
+    this.personASub.unsubscribe();
   }
 
 
