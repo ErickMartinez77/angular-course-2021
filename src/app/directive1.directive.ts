@@ -8,13 +8,14 @@ export class Directive1Directive {
 
   @Input() color:string = 'yellow';
   @Output() outputTest = new EventEmitter<any>(null);
+  @Input() color2:string;
 
   @HostListener('click') onClick(){
     this.setBackgroundColor(this.color);
   }
 
   @HostListener('mouseleave') onMouseLeave(){
-    this.setBackgroundColor('green');
+    this.setBackgroundColor('pink');
     this.outputTest.emit('test myoutput');
   }
 
