@@ -1,17 +1,16 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
-
+import { Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, Output } from '@angular/core';
+//DIRECTIVA DE ATRIBUTO
 @Directive({
   // patron decorator
   selector: '[directive1Test]'
 })
-export class Directive1Directive {
+export class Directive1Directive implements OnChanges{
 
-  @Input() color:string = 'yellow';
+  @Input() directive1Test:string = 'yellow';
   @Output() outputTest = new EventEmitter<any>(null);
-  @Input() color2:string;
 
   @HostListener('click') onClick(){
-    this.setBackgroundColor(this.color);
+    this.setBackgroundColor(this.directive1Test);
   }
 
   @HostListener('mouseleave') onMouseLeave(){
@@ -24,11 +23,15 @@ export class Directive1Directive {
   }
 
   constructor(private element: ElementRef) {//ElementRef hace refe a culquier elemento html
-    this.setBackgroundColor(this.color);
+    this.setBackgroundColor(this.directive1Test);
     this.element.nativeElement.style.border = '10px green solid';  
   }
 
   setBackgroundColor(color:string){
     this.element.nativeElement.style.backgroundColor = color
+  }
+
+  ngOnChanges(changes:any){
+    this.setBackgroundColor(changes.directive1Test.currentValue);
   }
 }

@@ -159,7 +159,7 @@ export class AppComponent {
   }
 
 
-  directiveOutput(event){
-    //console.log(event);
+  test(event){
+    console.log(event);
   }
 }

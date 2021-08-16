@@ -151,6 +151,14 @@ lastName="Martinez"
 <button (click)="personAUnsubscribe">UNSUBSCRIBE</button>
 
 
-<p directive1Test [(ngModel)]="color"
-(outputTest)="directiveOutput($ev)"
+<input type="text" [(ngModel)]="color">
+<p [directive1Test]="color"
+(outputTest)="test($event)"
 >MI PRIMERA DIRECTIVA DE ATRIBUTO</p>
+
+
+<input type="checkbox" [(ngModel)]="sw"> ngIfErick
+<div *ngIfErick="sw">
+  <p>MY OWN STRUCTURAL DIRECTIVE</p>
+
+</div>
