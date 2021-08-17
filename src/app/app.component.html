@@ -160,5 +160,16 @@ lastName="Martinez"
 <input type="checkbox" [(ngModel)]="sw"> ngIfErick
 <div *ngIfErick="sw">
   <p>MY OWN STRUCTURAL DIRECTIVE</p>
-
 </div>
+
+
+
+<div #myDiv2>Content</div>
+<p>{{myDiv2}}</p>
+
+<erick-comp #myCompErick></erick-comp>
+
+<input type="text" #myDiv3 value="fff">
+<p>{{myDiv2}}</p>
+
+<button (click)="onShowLocalVars()">Show local vars</button>
