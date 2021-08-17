@@ -25,6 +25,7 @@ export class AppComponent {
   @ViewChild('myDiv3') myDiv3: ElementRef;
   @ViewChild('myCompErick') myCompErick: ElementRef;
   
+  @ViewChild('tareaDiv') tareaDiv: ElementRef;
 
   constructor() {
     const testMap = [1, 2, 3, 4, 5].map(item => item * 2);
@@ -175,5 +176,13 @@ export class AppComponent {
     this.myCompErick.onClickTest();
 
     this.myDiv3.nativeElement.value = 'ricardo'
+
+    
+  }
+
+  //TAREA cambiar de color el borde de un div 17/08/2021
+  tareaDivColor(){
+    this.tareaDiv.nativeElement.style.border = "5px yellow solid";
+    //this.tareaDiv.nativeElement.style.className = "est2";
   }
 }

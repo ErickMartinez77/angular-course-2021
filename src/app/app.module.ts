@@ -20,7 +20,8 @@ import { Directive2Directive } from './directive2.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule],
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
