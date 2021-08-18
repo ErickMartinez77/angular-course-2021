@@ -5,3 +5,20 @@
   <app-card></app-card>
 
 </div>
+
+
+<!--------------PIPES   ---------------->
+<p>-------------PIPES-----------------</p>
+<p>{{ 'erick' | uppercase }}</p>
+<p>{{ name }}</p>
+
+<p>{{ 'JORGE' | lowercase }}</p>
+
+<p>{{ ['a','b','c','d','e'] | slice:2:4}}</p>
+
+<p *ngFor = "let item of ['a','b','c','d','e'] | slice:2:4">{{item}}</p>
+
+<p>{{ auxJSON | json }}</p>
+
+<p *ngFor = "let item of auxObs$ | async">{{item}}</p>
+<button (click)="onAdd()">ADD</button>
