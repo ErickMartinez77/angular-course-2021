@@ -8,10 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { Test3Component } from './test3/test3.component';
 import { Directive1Directive } from './directive1.directive';
 import { Directive2Directive } from './directive2.directive';
-import { Module1Module } from './module1/module1.module';
 import { HomeModule } from './pages/home/home.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { BuyModule } from './pages/buy/buy.module';
+import { CoreModule } from './core/core.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { BuyModule } from './pages/buy/buy.module';
     HomeModule,
     AdminModule,
     BuyModule,
-    
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
