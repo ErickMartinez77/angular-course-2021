@@ -13,6 +13,8 @@ import { AdminModule } from './pages/admin/admin.module';
 import { BuyModule } from './pages/buy/buy.module';
 import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
+import { WalletsComponent } from './wallets/wallets.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LayoutModule } from './layout/layout.module';
     Test2Component,
     Test3Component,
     Directive1Directive,
-    Directive2Directive
+    Directive2Directive,
+    WalletsComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,

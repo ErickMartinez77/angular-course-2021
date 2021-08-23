@@ -1,0 +1,18 @@
+<div [style.background]="mineType==='PoW' ? 'yellow' : 'green'"
+style="float: left; margin: 5px; padding: 5px;">
+
+<p>Date: {{date }}</p>
+<p>From: {{from}}</p>
+<p>To: {{to}}</p>
+<p>Quantity: {{quantity}}</p>
+<p>MoneyType: {{moneyType | uppercase}}</p>
+<p>MineType: {{mineType}}</p>
+<p>Miner: {{miner}}</p>
+
+<button (click)="onMine()" [disabled]="(mineType==='PoS' && miner<20) || !transHecha">Mine</button>
+
+<p *ngIf="verifyCount()">
+THERE ARE NO TRANSACTIONS
+</p>
+
+</div>
