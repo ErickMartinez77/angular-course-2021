@@ -185,4 +185,20 @@ export class AppComponent {
     this.tareaDiv.nativeElement.style.border = "5px yellow solid";
     //this.tareaDiv.nativeElement.style.className = "est2";
   }
+
+
+
+
+
+  //-----------------------SEGUNDO TERMINO
+  //las funciones puras reciben unos valores y ya se sabe la respuesta
+  pure(a:number, b:number){
+    return a + b;
+  }
+
+  //las funciones impuras, le enviamos valores pero no se sabe el resultado todavia
+  inpure(a:number, b:number){
+    const aux = Math.random();
+    return a + b + aux;
+  }
 }
