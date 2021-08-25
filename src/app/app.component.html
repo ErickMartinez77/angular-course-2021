@@ -188,7 +188,7 @@ lastName="Martinez"
 <!--------------APP   ---------------->
 
 <p>----------------------------APP-----------------------------------</p>
-<app-admin1></app-admin1>
+<!--  <app-admin1></app-admin1> -->
 
 <!--------------TAREA 18/08/20201   ---------------->
 <p>------TAREA 18/08/20201 App, module, layout-------------------------------</p>
@@ -204,3 +204,15 @@ lastName="Martinez"
 <p>PURE: {{ data | pure }}</p>
 <p>IMPURE: {{ data | impure }}</p>
 <button (click)="data.push(10)">Add</button>
+
+
+<p>---------------------COMPONENT ROUTING ---------------------</p>
+<div style ="border: 4px red solid">
+  <router-outlet>
+
+  </router-outlet>
+</div>
+
+<p>---------------------MODULE ROUTING ---------------------</p>
+<button routerLink="view1" routerLinkActive="active-router">View 1</button>
+<button routerLink="view2" routerLinkActive="active-router">View 2</button>
