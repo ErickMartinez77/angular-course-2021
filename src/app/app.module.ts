@@ -31,6 +31,9 @@ const routes:Routes = [
         path: '', redirectTo: 'view1sub1', pathMatch:'full'
       },
       {
+        path: 'view1sub1', component:View1sub1Component
+      },
+      {
         path: 'view1sub2', component:View1sub2Component
       }
     ]
