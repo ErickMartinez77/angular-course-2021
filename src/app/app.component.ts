@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import {BehaviorSubject, of, Subscription} from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
@@ -29,7 +30,9 @@ export class AppComponent {
 
   data = [1,2,3,4,5,6,7,8,9];
 
-  constructor() {
+  id = 3;
+
+  constructor(private router:Router) {
     const testMap = [1, 2, 3, 4, 5].map(item => item * 2);
     console.log(testMap);
 
@@ -202,5 +205,14 @@ export class AppComponent {
   inpure(a:number, b:number){
     const aux = Math.random();
     return a + b + aux;
+  }
+
+
+
+
+
+  //envio de parametros por html
+  onGoViewFromTs():void {
+    this.router.navigate(['view2', this.id, 'sub', 3333]);
   }
 }

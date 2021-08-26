@@ -215,5 +215,7 @@ lastName="Martinez"
 
 <p>---------------------MODULE ROUTING ---------------------</p>
 <button routerLink="view1" routerLinkActive="active-router">View 1</button>
-<button routerLink="view2" routerLinkActive="active-router">View 2</button>
+<button routerLink="view2/5/sub/34" routerLinkActive="active-router">View 2</button>
 <button routerLink="view3" routerLinkActive="active-router">View 3</button>
+
+<button (click)="onGoViewFromTs()">Go view 2 from ts</button>
