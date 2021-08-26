@@ -19,6 +19,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { View2Component } from './view2/view2.component';
 import { View1sub1Component } from './view1/view1sub1/view1sub1.component';
 import { View1sub2Component } from './view1/view1sub2/view1sub2.component';
+import { Home1Component } from './pages/home/home1/home1.component';
+import { Home2Component } from './pages/home/home2/home2.component';
+import { Admin1Component } from './pages/admin/admin1/admin1.component';
+import { Admin2Component } from './pages/admin/admin2/admin2.component';
 
 const routes:Routes = [
   {
@@ -43,6 +47,28 @@ const routes:Routes = [
   },
   {
     path: 'view3', loadChildren: () => import('./view3/view3.module').then(m => m.View3Module)
+  },
+  {
+    path: 'home',
+    children:[
+      {
+        path: 'home1', component:Home1Component
+      },
+      {
+        path: 'home2', component:Home2Component
+      }
+    ]
+  },
+  {
+    path: 'admin',
+    children:[
+      {
+        path: 'admin1', component:Admin1Component
+      },
+      {
+        path: 'admin2', component:Admin2Component
+      }
+    ]
   }
 ];
 
