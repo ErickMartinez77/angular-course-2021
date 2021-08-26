@@ -213,6 +213,9 @@ export class AppComponent {
 
   //envio de parametros por html
   onGoViewFromTs():void {
-    this.router.navigate(['view2', this.id, 'sub', 3333]);
+    this.router.navigate(
+      ['view2', this.id, 'sub', 3333],
+      {queryParams: {name: 'cristian', lastName:'paz'}}
+      );
   }
 }
