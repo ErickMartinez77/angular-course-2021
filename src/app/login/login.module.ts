@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatSliderModule } from '@angular/material/slider/slider-module';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner/progress-spinner-module';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const routes: Routes = [{ path: '', component: LoginComponent }];
 

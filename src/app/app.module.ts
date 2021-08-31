@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSliderModule } from '@angular/material/slider/slider-module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner/progress-spinner-module';
 
 const routes:Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
@@ -15,12 +18,13 @@ const routes:Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
