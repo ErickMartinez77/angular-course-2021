@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSliderModule } from '@angular/material/slider/slider-module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner/progress-spinner-module';
+import { SingletonService } from './login/services/singleton.service';
 
 const routes:Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
@@ -26,7 +27,8 @@ const routes:Routes = [
     RouterModule.forRoot(routes),
     NgbModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
