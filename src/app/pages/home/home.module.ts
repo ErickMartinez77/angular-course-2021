@@ -17,7 +17,6 @@ const routes:Routes=[
     HomeComponent
   ],
   providers:[
-    SingletonService
   ]
 })
 export class HomeModule { }
