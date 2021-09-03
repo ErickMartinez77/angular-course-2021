@@ -52,3 +52,15 @@
 </form>
 
 
+<p>--------------------------------REACTIVE FORMS---------------------------------------</p>
+<!-- FORMULARIO REACTIVO CON FORMCONTROL-->
+<input type="text" [formControl]="name">
+<button (click)="onShow()">SHOW</button>
+
+<!-- FORMULARIO REACTIVO CON FORMGROUP-->
+<div style="border: 5px yellow solid;" [formGroup]="formReactive">
+  <input type="text" formControlName="name" >
+  <input type="text" formControlName="lastName">
+  <input type="text" formControlName="date">
+</div>
+<button (click)="onShowAll()">SHOW ALL</button>

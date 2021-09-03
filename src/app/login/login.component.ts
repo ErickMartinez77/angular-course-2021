@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PublicationService } from './services/publication.service';
 import { SingletonService } from './services/singleton.service';
 import { Test1Service } from './services/test1.service';
@@ -10,13 +11,31 @@ import { Test1Service } from './services/test1.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private test1Service: Test1Service, private singletonService: SingletonService, private publicationService:PublicationService) {
+  name = new FormControl(''); // formulario reactivo con FormControl
+  formReactive: FormGroup; // formulario reactivo con FormGroup
+
+  constructor(private test1Service: Test1Service, private singletonService: SingletonService, private publicationService:PublicationService, private formBuilder:FormBuilder) {
     console.log(this.test1Service.getItems());
 
     this.singletonService.setMessage('Hello from login');
+
+    this.formReactive = this.formBuilder.group({
+      name: '',
+      lastName: ['', [Validators.required]],
+      date: ''
+    });
   }
 
   ngOnInit(): void{
+
+    this.formReactive.valueChanges.subscribe(res=>{
+      console.log('FORM REACTIVE: ', res)
+    })
+
+    this.name.valueChanges.subscribe(res=>{
+      console.log('CHANGES: ', res)
+    })
+
     this.publicationService.getAll().subscribe(res=>{
       console.log('RESPONSE: ', res)
     })
@@ -58,6 +77,14 @@ export class LoginComponent implements OnInit {
 
   onSubmitTemplate(values:any){
     console.log('VALUES: ', values)
+  }
+
+  onShow(){
+    console.log(this.name.value);
+  }
+
+  onShowAll(){
+    console.log('', this.formReactive.value)
   }
 
 }
