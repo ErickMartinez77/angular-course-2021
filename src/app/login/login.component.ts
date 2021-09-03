@@ -50,4 +50,14 @@ export class LoginComponent implements OnInit {
     this.publicationService.delete('p002').subscribe((res=>console.log(res)));
   }
 
+  patch(){
+    this.publicationService.patch('p001',{
+      "description": "update from frontend PATCH 2",
+    }).subscribe(res=>console.log(res))
+  }
+
+  onSubmitTemplate(values:any){
+    console.log('VALUES: ', values)
+  }
+
 }
