@@ -10,6 +10,7 @@ import { Test1Service } from './services/test1.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  name2: string = '';
 
   name = new FormControl(''); // formulario reactivo con FormControl
   formReactive: FormGroup; // formulario reactivo con FormGroup
