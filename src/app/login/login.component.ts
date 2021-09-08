@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { PublicationService } from './services/publication.service';
-import { SingletonService } from './services/singleton.service';
-import { Test1Service } from './services/test1.service';
 
 @Component({
   selector: 'app-login',
@@ -10,44 +9,27 @@ import { Test1Service } from './services/test1.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  name2: string = '';
+  transactions:any = [];
+  wallets:any = [];
 
-  name = new FormControl(''); // formulario reactivo con FormControl
-  formReactive: FormGroup; // formulario reactivo con FormGroup
+  constructor(private publicationService:PublicationService) {
 
-  constructor(private test1Service: Test1Service, private singletonService: SingletonService, private publicationService:PublicationService, private formBuilder:FormBuilder) {
-    console.log(this.test1Service.getItems());
-
-    this.singletonService.setMessage('Hello from login');
-
-    this.formReactive = this.formBuilder.group({
-      name: '',
-      lastName: ['', [Validators.required]],
-      date: ''
-    });
   }
 
   ngOnInit(): void{
+    this.publicationService.getAllTransactions().subscribe(res=>{
+      Object.entries(res).map((p:any) => this.transactions.push({id:p[0], ...p[1]}))
+    });
 
-    this.formReactive.valueChanges.subscribe(res=>{
-      console.log('FORM REACTIVE: ', res)
-    })
+    this.publicationService.getAllWallets().subscribe(res=>{
+      Object.entries(res).map((p:any) => this.wallets.push({id:p[0], ...p[1]}))
+    });
 
-    this.name.valueChanges.subscribe(res=>{
-      console.log('CHANGES: ', res)
-    })
-
-    this.publicationService.getAll().subscribe(res=>{
-      console.log('RESPONSE: ', res)
-    })
   }
 
-  setMessage(){
-    this.singletonService.setMessage('Hi from login');
-  }
 
   update(){
-    this.publicationService.update('p001',{
+    this.publicationService.updateTransactions('p001',{
       "date": "17/02/2021",
       "description": "update from frontend",
       "idUser": 1,
@@ -56,36 +38,48 @@ export class LoginComponent implements OnInit {
     }).subscribe(res=>console.log(res))
   }
 
-  create(){
-    this.publicationService.create({
-      "date": "17/02/2021",
-      "description": "create from frontend",
-      "idUser": 1,
-      "imageUrl": "http://firebase/img.jpg",
-      "userPhotoUrl": "http://firebase/user1.jpg"
-    }).subscribe(res=>console.log(res))
-  }
-
   deleteA(){
-    this.publicationService.delete('p002').subscribe((res=>console.log(res)));
+    this.publicationService.deleteTransactions('p002').subscribe((res=>console.log(res)));
   }
 
   patch(){
-    this.publicationService.patch('p001',{
+    this.publicationService.patchWallets('p001',{
       "description": "update from frontend PATCH 2",
     }).subscribe(res=>console.log(res))
   }
 
-  onSubmitTemplate(values:any){
-    console.log('VALUES: ', values)
+  getTotalCoins(type:string){
+    return this.wallets.reduce((acc:any, value:any) =>
+    acc + (value[type] > 0 ? value[type] : 0)
+    , 0);
   }
 
-  onShow(){
-    console.log(this.name.value);
+  onMine(transaction:any, i:number):void{
+
+    const indexFROM = this.wallets.findIndex((w: { wallet: any; }) => w.wallet === transaction.from);
+    const indexTO = this.wallets.findIndex((w: { wallet: any; }) => w.wallet === transaction.to);
+    const iTr = this.transactions.findIndex((t: { id: any; })=>t.id === transaction.id)
+
+    let fromNumber: number = this.wallets[indexFROM][transaction.moneyType] - transaction.quanty;
+
+    let toNumber : number = this.wallets[indexTO][transaction.moneyType] + transaction.quantity;
+
+    if (transaction.moneyType ==='eth' || transaction.moneyType === 'ETH'){
+      this.publicationService.patchWallets(this.wallets[indexFROM].id, {eth:fromNumber}).subscribe(res=>console.log(res));
+      this.publicationService.patchWallets(this.wallets[indexTO].id, {eth:toNumber}).subscribe(res=>console.log(res));
+    } else {
+      this.publicationService.patchWallets(this.wallets[indexFROM].id, {btc:fromNumber}).subscribe(res=>console.log(res));
+      this.publicationService.patchWallets(this.wallets[indexTO].id, {btc:toNumber}).subscribe(res=>console.log(res));
+    }
+    this.publicationService.deleteTransactions(this.transactions[iTr].id);
   }
 
-  onShowAll(){
-    console.log('', this.formReactive.value)
+  getIfThereAreTransactions():boolean{
+    const aux = this.transactions.filter(
+      (t: { mineType: string; miner: number; }) => t.mineType === 'PoS' && t.miner < 20);
+
+    return this.transactions.length === aux.length;
   }
+
 
 }

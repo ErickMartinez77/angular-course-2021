@@ -10,23 +10,27 @@ export class PublicationService {
 
   constructor(private http: HttpClient) { }
 
-  public getAll(): Observable<any>{
-    return this.http.get(`${this.url}/publications.json`);
+  public getAllTransactions(): Observable<any>{
+    return this.http.get(`${this.url}/transactions.json`);
   }
 
-  public create(body:any): Observable<any>{
-    return this.http.post(`${this.url}/publications.json`, body);
+  public getAllWallets(): Observable<any>{
+    return this.http.get(`${this.url}/wallets.json`);
   }
 
-  public update(id: string, body:any): Observable<any>{
-    return this.http.put(`${this.url}/publications/${id}.json`, body);
+  public createTransactions(body:any): Observable<any>{
+    return this.http.post(`${this.url}/transactions.json`, body);
   }
 
-  public delete(id: string): Observable<any>{
-    return this.http.delete(`${this.url}/publications/${id}.json`);
+  public updateTransactions(id: string, body:any): Observable<any>{
+    return this.http.put(`${this.url}/wallets/${id}.json`, body);
   }
 
-  public patch(id: string, body:any): Observable<any>{
-    return this.http.patch(`${this.url}/publications/${id}.json`, body);
+  public deleteTransactions(id: string): Observable<any>{
+    return this.http.delete(`${this.url}/transactions/${id}.json`);
+  }
+
+  public patchWallets(id: string, body:any): Observable<any>{
+    return this.http.patch(`${this.url}/wallets/${id}.json`, body);
   }
 }
