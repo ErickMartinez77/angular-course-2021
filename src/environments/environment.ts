@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  app:{
-    apiBaseUrl: "https://facebook-project-em-default-rtdb.firebaseio.com"
-  }
+  // app:{
+  //   apiBaseUrl: "https://facebook-project-em-default-rtdb.firebaseio.com"
+  // }
 };
 
 /*

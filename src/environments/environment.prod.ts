@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  app:{
+    apiBaseUrl: "https://facebook-project-em-default-rtdb.firebaseio.com"
+  }
 };
