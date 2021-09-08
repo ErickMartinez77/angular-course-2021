@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { getValueInRange } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { PublicationService } from './services/publication.service';
 import { SingletonService } from './services/singleton.service';
 import { Test1Service } from './services/test1.service';
@@ -15,20 +16,22 @@ export class LoginComponent implements OnInit {
   name = new FormControl(''); // formulario reactivo con FormControl
   formReactive: FormGroup; // formulario reactivo con FormGroup
 
-  constructor(private test1Service: Test1Service, private singletonService: SingletonService, private publicationService:PublicationService, private formBuilder:FormBuilder) {
+  constructor(private test1Service: Test1Service,
+    private singletonService: SingletonService,
+    private publicationService:PublicationService, private formBuilder:FormBuilder) {
+
     console.log(this.test1Service.getItems());
 
     this.singletonService.setMessage('Hello from login');
 
     this.formReactive = this.formBuilder.group({
-      name: '',
+      name: ['',[Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required]],
       date: ''
     });
   }
 
   ngOnInit(): void{
-
     this.formReactive.valueChanges.subscribe(res=>{
       console.log('FORM REACTIVE: ', res)
     })
@@ -40,6 +43,10 @@ export class LoginComponent implements OnInit {
     this.publicationService.getAll().subscribe(res=>{
       console.log('RESPONSE: ', res)
     })
+  }
+
+  getValue(value:string){ //ARREGLAAAR
+    return this.formReactive.value(value);
   }
 
   setMessage(){
