@@ -2,30 +2,6 @@
   login works PRUEBAAA!
 </p>
 
-<button class="btn btn-danger">
-  asasdas
-</button>
-
-<div class="btn-group btn-group-toggle">
-  <label class="btn-primary" ngbButtonLabel>
-    <input type="checkbox" ngbButton /> Left (pre-checked)
-  </label>
-  <label class="btn-primary" ngbButtonLabel>
-    <input type="checkbox" ngbButton /> Middle
-  </label>
-  <label class="btn-primary" ngbButtonLabel>
-    <input type="checkbox" ngbButton /> Right
-  </label>
-</div>
-
-<ngb-toast [autohide]="false">
-  I am a simple static toast.
-</ngb-toast>
-
-<hr />
-
-<mat-spinner [diameter]="30" [color]="'accent'"></mat-spinner>
-<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
 
 <button (click)="setMessage()">set message</button>
 <button routerLink="../pages">pages</button>
@@ -42,44 +18,4 @@
 
 
 
-<!-- FORMULARIO BASADOS EN PLANTILLAS-->
-<p>TEMPLATE FORM</p>
-<form #formTemplate="ngForm" (ngSubmit)="onSubmitTemplate(formTemplate)">
-  <input type="text" name="aa" ngModel>
-  <input type="text" name="bb" ngModel>
-  <input type="text" name="cc" ngModel>
-  <button type="submit">Submit</button>
-</form>
 
-
-<p>--------------------------------REACTIVE FORMS---------------------------------------</p>
-<!-- FORMULARIO REACTIVO CON FORMCONTROL-->
-<input type="text" [formControl]="name">
-<button (click)="onShow()">SHOW</button>
-
-<!-- FORMULARIO REACTIVO CON FORMGROUP-->
-<div style="border: 5px yellow solid;" [formGroup]="formReactive">
-  <input type="text" formControlName="name" >
-  <input type="text" formControlName="lastName">
-  <input type="text" formControlName="date">
-</div>
-<button (click)="onShowAll()">SHOW ALL</button>
-
-
-<!-- VALIDACION A UN FORMULARIO BASADO EN PLANTILLAS -->
-<p>TEXTO</p>
-<input type="text" required minlength="5" maxlength="10" [(ngModel)]="name2" #nameLocal="ngModel">
-
-<div>{{nameLocal.errors|json}}</div>
-
-<div *ngIf="nameLocal.valid">ES VALIDO</div>
-
-<div *ngIf="nameLocal.invalid && (nameLocal.touched || nameLocal.dirty)">
-  <div *ngIf="nameLocal.errors?.required">
-    Name is required
-  </div>
-
-  <div *ngIf="nameLocal.errors?.minlength">
-    minLength is required
-  </div>
-</div>
