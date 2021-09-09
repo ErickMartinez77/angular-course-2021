@@ -6,7 +6,6 @@ import {map} from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
-  //Confir
 
   url = environment.auth.apiBaseUrl;
   key = environment.auth.key;
