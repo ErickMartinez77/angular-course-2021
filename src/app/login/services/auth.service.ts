@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
@@ -13,10 +14,21 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public login(body:any):Observable<any>{
-    return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`,body)
+    return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body).pipe(
+      map( (res:any) => {
+        this.authSuccess(res.idToken, res.localId)
+        return res;
+      })
+    );
   }
 
   public signUp(body:any){
     return this.http.post(`${this.url}/v1/accounts:signUp?key=${this.key}`,body)
+  }
+
+//se guarda el token en local storage
+  private authSuccess(token:string, userId: string){
+    localStorage.setItem('token', token);
+    localStorage.setItem('userId', userId);
   }
 }
