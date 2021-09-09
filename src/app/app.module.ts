@@ -7,9 +7,6 @@ import { SharedModule } from './shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatSliderModule } from '@angular/material/slider/slider-module';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner/progress-spinner-module';
-import { SingletonService } from './login/services/singleton.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const routes:Routes = [

@@ -6,12 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { Test1Service } from './services/test1.service';
-import { SingletonService } from './services/singleton.service';
-import { Login2Component } from './components/login2/login2.component';
-import { Login1Component } from './components/login1/login1.component';
-import { UtilsService } from './services/utils.service';
-import { PublicationService } from './services/publication.service';
+import {MatCardModule} from "@angular/material/card";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [{ path: '', component: LoginComponent }];
 
@@ -23,13 +21,14 @@ const routes: Routes = [{ path: '', component: LoginComponent }];
     ReactiveFormsModule,
     NgbModule,
     MatSliderModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
   ],
-  declarations: [LoginComponent, Login1Component, Login2Component],
+  declarations: [LoginComponent],
   providers:[
-    Test1Service,
-    UtilsService,
-    PublicationService
+    AuthService
   ]
 })
 export class LoginModule {}
