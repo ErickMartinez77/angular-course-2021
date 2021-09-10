@@ -19,12 +19,12 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = this.authService.getToken();
 
     if (token){//si existe el token lo modificamos
-      // let params = new HttpParams();
-      // params.append('auth',token)
+      let params = new HttpParams();
+      params = params.append('auth',token);
 
       request = request.clone({
-        url: `${request.url}?auth=${token}`,
-        //params: params
+        url: `${request.url}`,
+        params
       }) //se modifica(clona) el request y se lo envia
     }
 

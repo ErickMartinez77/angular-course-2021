@@ -1,0 +1,124 @@
+{
+  "publications" : {
+    "-Miwzh8xnReDcESiBx_6" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-MiwznqItZPETiI9B1DG" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mix6A0_zhkgazGnZLUy" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mix6Fcm8bhztOaM0aEs" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mix6FftAa_L5fvg_T87" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mix6FiM2APiBlS42MxK" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mix7NMn3TmefuBY3Bzw" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Miym9IGGSGcUEqvUO94" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Miym9gW-SMqWAKXWhWT" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-MiyqOGQPdETHk_8BAz7" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mj07ftLcNsnn5APFk5c" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mj07kKTn6nhSHuGl7ar" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mj07wLwCdAH4MomXMZr" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mj081I3sGzHnj1mnYEy" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mj0xItr9TYyx0iPT31L" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "-Mj0xRK1p22kXAWAsskp" : {
+      "date" : "17/82/2021",
+      "description" : "soy nuevo",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    },
+    "description" : "update testing with patch",
+    "p0001" : {
+      "date" : "17/82/2021",
+      "description" : "update from frontend",
+      "idUser" : 2,
+      "imageUrl" : "http://fitebase/img.jpg",
+      "userPhotoUrl" : "http://fitebase/user1.jpg"
+    }
+  }
+}
