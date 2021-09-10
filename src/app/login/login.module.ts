@@ -31,7 +31,6 @@ const routes: Routes = [{ path: '', component: LoginComponent }];
   ],
   declarations: [LoginComponent, RegisterComponent],
   providers:[
-    AuthService
   ]
 })
 export class LoginModule {}

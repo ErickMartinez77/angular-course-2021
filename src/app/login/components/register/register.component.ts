@@ -15,14 +15,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister(form:any){
-    console.log('Register: ',form)
-
     this.authService.signUp({
       email: form.value.email,
       password: form.value.password,
       returnSecureToken: true
-    }).subscribe(res=>{
-      console.log('REGISTER',res);
+    }).subscribe(() => {
       this.dialogRef.close();
     })
   }

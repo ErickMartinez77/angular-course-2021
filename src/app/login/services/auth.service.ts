@@ -22,12 +22,20 @@ export class AuthService {
   }
 
   public signUp(body:any){
-    return this.http.post(`${this.url}/v1/accounts:signUp?key=${this.key}`,body)
+    return this.http.post(`${this.url}/v1/accounts:signUp?key=${this.key}`, body);
   }
 
-//se guarda el token en local storage
   private authSuccess(token:string, userId: string){
     localStorage.setItem('token', token);
     localStorage.setItem('userId', userId);
   }
+
+  public getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  public getUserId(): string | null{
+    return localStorage.getItem('userId');
+  }
+
 }
