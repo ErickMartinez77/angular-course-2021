@@ -1,40 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService } from './login/services/auth.service';
-import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import {AppComponent} from './app.component';
+import {RouterModule, Routes} from "@angular/router";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CoreModule} from "./core/core.module";
 
-const routes:Routes = [
-  {path:'', redirectTo:'login', pathMatch:'full'},
-  {path:'login', loadChildren: () => import('./login/login.module').then(m=>m.LoginModule)},
-  {path:'pages', loadChildren: () => import('./pages/pages.module').then(m=>m.PagesModule)}
+const routes: Routes = [
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
+  {path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)}
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    NgbModule,
-    HttpClientModule
-  ],
-  providers: [
-    AuthService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
+    CoreModule
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+
+export class AppModule {
+}

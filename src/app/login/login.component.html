@@ -1,4 +1,4 @@
-<div class="container row">
+<div class="login row">
 
   <div class="left col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
     <img src="assets/img/logo.svg" alt="">
@@ -11,14 +11,26 @@
 
     <mat-card class="form">
       <mat-card-content>
-          <form #form="ngForm" (ngSubmit)="login(form)" style="display: flex; flex-direction: column;">
-            <input type="text" name="email" ngModel placeholder="Email address">
-            <input type="password" name="password" ngModel placeholder="Password">
-            <button class="login-btn">Log In</button>
-            <a href="">Forgot Password?</a>
-            <div class="underline"></div>
-          </form>
-          <button class="create-new-account-btn" type="submit" (click)="onCreateNewAccount()">Create New Account</button>
+        <form #form="ngForm"
+              (ngSubmit)="login(form)"
+              style="display: flex; flex-direction: column;">
+          <input type="text"
+                 name="email"
+                 ngModel
+                 placeholder="Email address">
+          <input type="password"
+                 name="password"
+                 ngModel
+                 placeholder="Password">
+          <button class="login-btn">Log In</button>
+          <a href="">Forgot Password?</a>
+        </form>
+
+        <div class="underline"></div>
+        <button class="create-new-account-btn"
+                (click)="onCreateNewAccount()">
+          Create New Account
+        </button>
       </mat-card-content>
     </mat-card>
 

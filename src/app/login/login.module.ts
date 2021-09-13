@@ -1,36 +1,28 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatCardModule} from "@angular/material/card";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
-import { AuthService } from './services/auth.service';
-import { RegisterComponent } from './components/register/register.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {LoginComponent} from './login.component';
+import {RouterModule, Routes} from "@angular/router";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RegisterComponent} from './components/register/register.component';
+import {SharedMaterialModule} from "../shared/shared-material.module";
 
-const routes: Routes = [{ path: '', component: LoginComponent }];
+const routes: Routes = [
+  {path: '', component: LoginComponent}
+]
 
 @NgModule({
+  declarations: [
+    LoginComponent,
+    RegisterComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
-    MatSliderModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDialogModule
-  ],
-  declarations: [LoginComponent, RegisterComponent],
-  providers:[
+    RouterModule.forChild(routes),
+    SharedMaterialModule
   ]
 })
-export class LoginModule {}
+
+export class LoginModule {
+}

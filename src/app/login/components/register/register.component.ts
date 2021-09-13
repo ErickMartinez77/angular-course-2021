@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { AuthService } from '../../services/auth.service';
+import {AuthService} from "../../../core/services/auth.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-register',
@@ -9,7 +9,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authService:AuthService, public dialogRef: MatDialogRef<RegisterComponent>) { }
+  constructor(private authService: AuthService,
+              public dialogRef: MatDialogRef<RegisterComponent>) { }
 
   ngOnInit(): void {
   }

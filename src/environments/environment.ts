@@ -1,12 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
-  // app:{
-  //   apiBaseUrl: "https://facebook-project-em-default-rtdb.firebaseio.com"
-  // }
+  app:{
+    apiBaseUrl: "https://facebook-project-em-default-rtdb.firebaseio.com"
+  },
   auth:{
     apiBaseUrl: "https://identitytoolkit.googleapis.com",
     key: "AIzaSyAVRNSTIo4P5uEOyycaXr2Fi0UuBKw-peY"

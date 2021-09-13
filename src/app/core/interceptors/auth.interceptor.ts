@@ -3,36 +3,37 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor,
-  HttpParams
+  HttpInterceptor, HttpParams
 } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
-import { AuthService } from 'src/app/login/services/auth.service';
+import {Observable, throwError} from 'rxjs';
+import {AuthService} from "../services/auth.service";
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authService:AuthService) {}
+  constructor(private authService: AuthService) {}
 
-  /////      lo que estamos enviando      lo que nos va a devolver
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
     const token = this.authService.getToken();
 
-    if (token){//si existe el token lo modificamos
+    if(token){
       let params = new HttpParams();
-      params = params.append('auth',token);
+      params = params.append('auth', token);
 
       request = request.clone({
         url: `${request.url}`,
         params
-      }) //se modifica(clona) el request y se lo envia
+      });
     }
 
     return next.handle(request).pipe(
-     catchError((err:any) => {
-      console.log('ERROR: ',err);
-      return throwError('ERROR EXTRA')
-     })
+      catchError( (err:any) => {
+        console.log('ERROR', err)
+        return throwError('ERROR EXTRA')
+      })
     );
   }
+
 }
