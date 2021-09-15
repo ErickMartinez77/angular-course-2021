@@ -11,7 +11,7 @@ export class AuthService {
   url = environment.auth.apiBaseUrl;
   key = environment.auth.key;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   public login(body:any):Observable<any>{
     return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body).pipe(

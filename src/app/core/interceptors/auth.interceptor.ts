@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpParams
+  HttpInterceptor, HttpParams, HttpErrorResponse
 } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {AuthService} from "../services/auth.service";
@@ -29,11 +29,19 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request).pipe(
-      catchError( (err:any) => {
-        console.log('ERROR', err)
+      catchError( (err:HttpErrorResponse) => {
+        console.log('ERROR', err.status)
+        if (err.status === 401){ //401 cuando el token caduca o es incorrecto
+          this.handler401Error();
+        }
         return throwError('ERROR EXTRA')
       })
     );
+  }
+
+  private handler401Error(): Observable<any>{ //manejador del error 401,
+    this.authService.logout()
+    return throwError('ERROR 401')
   }
 
 }
