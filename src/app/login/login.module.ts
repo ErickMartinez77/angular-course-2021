@@ -5,6 +5,8 @@ import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RegisterComponent} from './components/register/register.component';
 import {SharedMaterialModule} from "../shared/shared-material.module";
+import { VaccinatedComponent } from '../vaccinated/vaccinated.component';
+import { UnvaccinatedComponent } from '../unvaccinated/unvaccinated.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent}
@@ -13,7 +15,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    VaccinatedComponent,
+    UnvaccinatedComponent
   ],
   imports: [
     CommonModule,

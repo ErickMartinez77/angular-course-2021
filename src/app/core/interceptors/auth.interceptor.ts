@@ -34,7 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError( (err:HttpErrorResponse) => {
         console.log('ERROR', err.status)
 
-        if(err.status === 401) { //401 cuando el token caduca o es incorrecto
+        if(err.status === 401) {
           this.handler401Error();
         }
 
@@ -43,7 +43,7 @@ export class AuthInterceptor implements HttpInterceptor {
     );
   }
 
-  private handler401Error(): Observable<any> { //manejador del error 401
+  private handler401Error(): Observable<any> {
     this.authService.logout();
     return throwError('ERROR 401')
   }

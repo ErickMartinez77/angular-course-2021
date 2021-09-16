@@ -5,6 +5,8 @@ import {AppComponent} from './app.component';
 import {RouterModule, Routes} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CoreModule} from "./core/core.module";
+import { VaccinatedComponent } from './vaccinated/vaccinated.component';
+import { UnvaccinatedComponent } from './unvaccinated/unvaccinated.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -14,7 +16,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     CoreModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 
 export class AppModule {
