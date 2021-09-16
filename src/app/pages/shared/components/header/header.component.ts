@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/core/services/auth.service';
+import {AuthService} from "../../../../core/services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogout(){
+  onLogout():void{
     this.authService.logout();
   }
 

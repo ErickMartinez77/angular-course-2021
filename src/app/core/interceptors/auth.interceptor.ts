@@ -12,7 +12,9 @@ import {catchError} from "rxjs/operators";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -31,16 +33,18 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError( (err:HttpErrorResponse) => {
         console.log('ERROR', err.status)
-        if (err.status === 401){ //401 cuando el token caduca o es incorrecto
+
+        if(err.status === 401) { //401 cuando el token caduca o es incorrecto
           this.handler401Error();
         }
+
         return throwError('ERROR EXTRA')
       })
     );
   }
 
-  private handler401Error(): Observable<any>{ //manejador del error 401,
-    this.authService.logout()
+  private handler401Error(): Observable<any> { //manejador del error 401
+    this.authService.logout();
     return throwError('ERROR 401')
   }
 
