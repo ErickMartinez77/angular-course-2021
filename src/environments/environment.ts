@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   app:{
-    apiBaseUrl: "https://facebook-project-em-default-rtdb.firebaseio.com"
-    //apiBaseUrl: "https://vaccines-test-default-rtdb.firebaseio.com"
+    //apiBaseUrl: "https://facebook-project-em-default-rtdb.firebaseio.com"
+    apiBaseUrl: "https://vaccines-test-default-rtdb.firebaseio.com"
 
   },
   auth:{
