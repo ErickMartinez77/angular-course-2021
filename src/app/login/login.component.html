@@ -1,6 +1,6 @@
 <div>
-  TOTAL VACCINATED: {{getTotal('btc')}}
-  TOTAL UNVACCINATED: {{getTotal('eth')}}
+  TOTAL VACCINATED: {{vaccinated.length}}
+  TOTAL UNVACCINATED: {{unvaccinated.length}}
 </div>
 
 <div *ngIf="everybodyVaccinated()">
@@ -23,7 +23,7 @@
     <app-unvaccinated [data]="vacc">
       <button
       [disabled]="vacc.disease || vacc.age < 12"
-      (click)="onVaccinate(transaction, i)">
+      (click)="onVaccinate(vacc)">
         Vaccinate
       </button>
       <button>
@@ -33,4 +33,29 @@
   </div>
 </div>
 
+<mat-card class="form">
+  <mat-card-content>
+<form #form="ngForm"
+      (ngSubmit)="save(form)"
+      style="display: flex; flex-direction: column;">
+  <input type="text"
+    name="email"
+    ngModel
+    placeholder="Name">
+  <input type="text"
+    name="password"
+    ngModel
+    placeholder="Age">
+  <input type="text"
+    name="password"
+    ngModel
+    placeholder="Disease">
+  <input type="text"
+    name="password"
+    ngModel
+    placeholder="VaccineType">
+  <button class="login-btn">Save</button>
+</form>
+</mat-card-content>
+</mat-card>
 
